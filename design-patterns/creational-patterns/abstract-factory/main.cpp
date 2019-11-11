@@ -6,12 +6,14 @@
 
 class shape {
 public:
-    shape() {
+    shape() 
+    {
         id_ = total_++;
         std::cout << "shape constructor...\n";
     }
 
-    ~shape() {
+    ~shape() 
+    {
         std::cout << "shape destructor...\n";
     }
 
@@ -26,52 +28,62 @@ int shape::total_ = 0;
 
 class circle: public shape {
 public:
-    void draw() {
+    void draw() 
+    {
         std::cout << "circle " << id_ << ": draw\n";
     }
 };
 
 class square: public shape {
 public:
-    void draw() {
+    void draw() 
+    {
         std::cout << "square " << id_ << ": draw\n";
     }
 
-    square() {
+    square() 
+    {
         std::cout << "square constructor...\n";
     }
 
-    ~square() {
+    ~square() 
+    {
         std::cout << "square destructor...\n";
     }
 };
 
 class ellipse: public shape {
 public:
-    void draw() {
+    void draw() 
+    {
         std::cout << "ellipse " << id_ << ": draw\n";
     }
 
-    ellipse() {
+    ellipse() 
+    {
         std::cout << "ellipse constructor...\n";
     }
 
-    ~ellipse() {
+    ~ellipse() 
+    {
         std::cout << "ellipse destructor...\n";
     }
 };
 
 class rectangle: public shape {
 public:
-    void draw() {
+    void draw() 
+    {
         std::cout << "rectangle " << id_ << ": draw\n";
     }
 
-    rectangle() {
+    rectangle() 
+    {
         std::cout << "rectangle constructor...\n";
     }
 
-    ~rectangle() {
+    ~rectangle() 
+    {
         std::cout << "rectangle destructor...\n";
     }
 };
@@ -82,49 +94,59 @@ class factory {
 public:
     virtual shape_shared_ptr create_curved_instance() = 0;
     virtual shape_shared_ptr create_straight_instance() = 0;
-    factory() {
+    factory() 
+    {
         std::cout << "factory constructor...\n";
     }
 
-    ~factory() {
+    ~factory() 
+    {
         std::cout << "factory destructor...\n";
     }
 };
 
 class simple_shape_factory: public factory {
 public:
-    shape_shared_ptr create_curved_instance() {
+    shape_shared_ptr create_curved_instance() 
+    {
         return std::make_shared<circle>();
     }
 
-    shape_shared_ptr create_straight_instance() {
+    shape_shared_ptr create_straight_instance() 
+    {
         return std::make_shared<square>();
     }
 
-    simple_shape_factory() {
+    simple_shape_factory() 
+    {
         std::cout << "simple_shape_factory constructor...\n";
     }
 
-    ~simple_shape_factory() {
+    ~simple_shape_factory() 
+    {
         std::cout << "simple_shape_factory destructor...\n";
     }
 };
 
 class robust_shape_factory: public factory {
 public:
-    shape_shared_ptr create_curved_instance() {
+    shape_shared_ptr create_curved_instance() 
+    {
         return std::make_shared<ellipse>();
     }
 
-    shape_shared_ptr create_straight_instance() {
+    shape_shared_ptr create_straight_instance() 
+    {
         return std::make_shared<rectangle>();
     }
 
-    robust_shape_factory() {
+    robust_shape_factory() 
+    {
         std::cout << "robust_shape_factory constructor...\n";
     }
 
-    ~robust_shape_factory() {
+    ~robust_shape_factory() 
+    {
         std::cout << "robust_shape_factory destructor...\n";
     }
 };
